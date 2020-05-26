@@ -43,8 +43,11 @@
         		?>
 							<td><?php echo $i;?></td>
 							<td><?php echo $key['name'];?></td>
-							<td><a href="editcat.php?catid=<?php echo $key['id']?>">Edit</a> || <a onclick="return confirm('are you sure to delete?')" href="catlist.php?delcat=<?php echo $key['id']?>">Delete</a></td>
-						
+							<td><a href="editcat.php?catid=<?php echo $key['id']?>">Edit</a>
+							<?php
+                                    if(session::get('userrole') == '0' ){?>
+							|| <a onclick="return confirm('are you sure to delete?')" href="catlist.php?delcat=<?php echo $key['id']?>">Delete</a></td>
+						<?php } ;?>
 						</tr>
 						<?php } ;?>
 					</tbody>
